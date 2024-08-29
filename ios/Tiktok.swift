@@ -15,7 +15,7 @@ class Tiktok: UIViewController {
     DispatchQueue.main.async {
       request.send(self, completion: { resp -> Void in
         callback([
-          ["status": resp.errCode.rawValue, "code": resp]
+          ["status": resp.errCode.rawValue, "code": resp.code]
         ])
       })
     }

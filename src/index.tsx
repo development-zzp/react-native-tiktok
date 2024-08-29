@@ -9,13 +9,13 @@ type ResponseType = {
 };
 
 export const auth = (
-  callback: (code: any, error: boolean | null, errMsg: string) => void
+  callback: (code: string, error: boolean | null, errMsg: string) => void
 ) => {
   Tiktok.auth((resp: ResponseType) => {
     if (Platform.OS === 'ios') {
       switch (resp.status) {
         case response.success:
-          callback(resp, false, '');
+          callback(resp.code, false, '');
           break;
         case response.networkError:
           callback('', true, 'Network Error');
