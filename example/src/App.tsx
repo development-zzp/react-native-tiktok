@@ -9,7 +9,7 @@ export default function App() {
       console.warn(resp);
     });
 
-    return () => ev.remove();
+    return () => ev?.remove();
   }, []);
 
   return (

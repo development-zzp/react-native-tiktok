@@ -7,7 +7,7 @@ class Tiktok: UIViewController {
     
   @objc
   func auth(_ callback: @escaping RCTResponseSenderBlock) {
-    let scopes = ["user.info.basic,video.list"] // list your scopes
+    let scopes = ["user.info.profile,aweme.share,user.info.basic,user.info.stats,video.list,video.publish,video.upload"] // list your scopes
     let scopesSet = NSOrderedSet(array:scopes)
     let request = TikTokOpenSDKAuthRequest()
     request.permissions = scopesSet
@@ -15,7 +15,7 @@ class Tiktok: UIViewController {
     DispatchQueue.main.async {
       request.send(self, completion: { resp -> Void in
         callback([
-          ["status": resp.errCode.rawValue, "code": resp.code]
+          ["status": resp.errCode.rawValue, "code": resp]
         ])
       })
     }
