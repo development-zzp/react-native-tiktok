@@ -44,7 +44,7 @@ class TiktokModule(reactContext: ReactApplicationContext) :
   }
 
   @ReactMethod
-  fun authorize(redirectURI: String, callback: Callback, scopes: ReadableArray? = null) {
+  fun authorize(redirectURI: String, scopes: ReadableArray? = null, callback: Callback)  {
     this.redirectUrl = redirectURI
     this.callback = callback
 
